@@ -1,4 +1,4 @@
-package chapter03;
+package chapter03.CDL;
 
 import chapter02.decoupled.MessageRenderer;
 import org.springframework.context.ApplicationContext;
