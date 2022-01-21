@@ -4,11 +4,11 @@
        xmlns:c="http://www.springframework.org/schema/c"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="provider" class="chapter03.xml.ConfigurableMessageProvider"
+    <bean id="provider" class="chapter03.ConstructorInjection.xml.ConfigurableMessageProvider"
           c:message="I hope that someone gets my message in a bottle" />
 
     <bean id="constructorConfusion"
-          class="chapter03.xml.ConstructorConfusion">
+          class="chapter03.ConstructorInjection.xml.ConstructorConfusion">
         <constructor-arg type="java.lang.String">
             <value>90</value>
         </constructor-arg>

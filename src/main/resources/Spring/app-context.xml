@@ -8,4 +8,5 @@
     <bean id="provider" class="chapter02.decoupled.HelloWorldMessageProvider" />
     <bean id="renderer" class="chapter02.decoupled.StandardOutMessageRenderer"
           p:messageProvider-ref="provider" />
+
 </beans>

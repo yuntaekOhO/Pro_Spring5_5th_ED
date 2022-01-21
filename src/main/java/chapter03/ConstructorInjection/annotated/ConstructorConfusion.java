@@ -1,36 +1,42 @@
-package chapter03.xml;
+package chapter03.ConstructorInjection.annotated;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.support.GenericXmlApplicationContext;
+import org.springframework.stereotype.Service;
 
 /*
-    인수의 타입(String, int)에 따라 초기화 되는 생성자가 다르다.
-    인수는 resources/Spring/app-context-constructor.xml에
-    constructor-arg value 태그에서 변경 가능
+    annotation을 이용한 생성자 의존성 주입
+    @Autowired로 의존성 주입 @Service가 bean name
  */
+@Service("constructorConfusion")
 public class ConstructorConfusion {
     private String someValue;
 
-    public ConstructorConfusion(String someValue) {
+    //@Autowired
+    public ConstructorConfusion(@Value("ninety") String someValue) {
         System.out.println("ConstructorConfusion(String) called");
         this.someValue = someValue;
     }
 
-    public ConstructorConfusion(int someValue) {
+    @Autowired
+    public ConstructorConfusion(@Value("90") int someValue) {
         System.out.println("ConstructorConfusion(int) called");
         this.someValue = "Number: " + Integer.toString(someValue);
-    }
-
-    public static void main(String[] args) {
-        GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
-        ctx.load("classpath:Spring/app-context-constructor.xml");
-        ctx.refresh();
-        ConstructorConfusion cc = (ConstructorConfusion) ctx.getBean("constructorConfusion");
-        System.out.println(cc);
-        ctx.close();
     }
 
     @Override
     public String toString() {
         return someValue;
+    }
+
+    public static void main(String[] args) {
+        GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
+        ctx.load("classpath:Spring/app-context-annotation.xml");
+        ctx.refresh();
+
+        ConstructorConfusion cc = (ConstructorConfusion) ctx.getBean("constructorConfusion");
+        System.out.println(cc);
+        ctx.close();
     }
 }

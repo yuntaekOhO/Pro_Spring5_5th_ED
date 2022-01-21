@@ -1,4 +1,4 @@
-package chapter03.annotated;
+package chapter03.ConstructorInjection.annotated;
 
 import chapter02.decoupled.MessageProvider;
 import org.springframework.beans.factory.annotation.Autowired;

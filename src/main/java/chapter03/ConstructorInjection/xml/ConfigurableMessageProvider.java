@@ -1,4 +1,4 @@
-package chapter03.xml;
+package chapter03.ConstructorInjection.xml;
 
 import chapter02.decoupled.MessageProvider;
 
