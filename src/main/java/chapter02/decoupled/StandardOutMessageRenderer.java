@@ -2,6 +2,7 @@ package chapter02.decoupled;
 
 /*
     MessageRenderer의 구현체
+    MessageRenderer 가 렌더링할 메시지를 제공하는 MessageProvider 에 의존한다.
  */
 public class StandardOutMessageRenderer implements MessageRenderer {
     private MessageProvider messageProvider;
